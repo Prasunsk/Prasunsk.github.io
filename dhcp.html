@@ -17,8 +17,10 @@
             </ul>
         </nav>
 
+
+
         <!--DHCP-->
-        <article id="DHCP" class="blog">
+        <article id="DHCP" class="blog1">
             <div class="container">
                 <h2> Introduction</h2>
                 <p>
@@ -27,31 +29,33 @@
                 <img src="images/dhcp_setting.png" alt="" />
 
                 <h2> How DHCP Works</h2>
-                <dl> DHCP Discovery: </dl>
+                <ol>
+                    <strong><li> DHCP Discovery:  </li> </strong>
                 <p>When a DHCP client connects to a network, it sends a DHCP discovery message (DHCP DISCOVER) to locate available DHCP servers. This broadcast message is forwarded by DHCP relay agents if present.
                 </p>
-                <dl>DHCP Offer:</dl>
+                    <strong><li>DHCP Offer:  </li> </strong>
                 <p>Upon receiving the DHCP discovery message, one or more DHCP servers respond with a DHCP offer message (DHCPOFFER). The offer includes an available IP address, lease duration, subnet mask, default gateway, DNS server information, and other network parameters.
                 </p>
-                <dl>DHCP Request:</dl>
+                    <strong><li>DHCP Request:  </li> </strong>
                 <p>The client selects one DHCP offer and sends a DHCP request message (DHCPREQUEST) to the respective DHCP server, requesting the offered IP address.
                 </p>
-                <dl>DHCP Acknowledgment:</dl>
+                    <strong><li>DHCP Acknowledgment:  </li> </strong>
                 <p>The DHCP server responds with a DHCP acknowledgment message (DHCP ACK), confirming the IP address lease and providing the client with the network configurations. The client then configures its network interface with the received information.\
                 </p>
+                </ol>
 
                 <h2>Benefits of DHCP</h2>
                 <img src="images/dhcp_setting.png" alt="" />
-                <dl> Simplified IP Address Management: </dl>
+                    <strong><li> Simplified IP Address Management:  </li> </strong>
                 <p>It automates and enables centralized IP address management, making it easier to add, remove, or relocate devices within the network.
                 </p>
-                <dl> Efficient Resource Utilization:</dl>
+                    <strong><li> Efficient Resource Utilization:  </li></strong>
                 <p>It prevents IP address conflicts and ensures efficient utilization of available addresses, which includes cases where laptops that move to different locations on a wireless network.
                 </p>
-                <dl> Flexibility and Scalability:</dl>
+                    <strong><li> Flexibility and Scalability: </li></strong> 
                 <p>DHCP allows for easy scalability as networks grow or change. Additional DHCP servers can be deployed, and subnet configurations can be modified without significant disruptions.
                 </p>
-                <dl>Streamlined Network Configuration:</dl>
+                    <strong><li>Streamlined Network Configuration: </strong> 
                 <p>DHCP ensures accurate and consistent network settings by providing network parameters such as subnet masks, default gateways, and DNS server information.
                  </p>
 
