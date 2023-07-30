@@ -47,19 +47,47 @@
 					<div class="row">
 						<div class="col-4 col-6-medium col-12-small">
 							<article class="box style2">
-								<a href="./linux1.html" class="image featured"><img src="images/linux.png" alt="" /></a>
-								<h3><a href="./linux1.html">Linux</a></h3>
+								<a href="#" class="image featured"><img src="images/linux.png" alt="" /></a>
+								<h3><a href="/linux1.html">Linux</a></h3>
 								<p>Curated for DevOps Engineers.</p>
 							</article>
 						</div>
 						<div class="col-4 col-6-medium col-12-small">
 							<article class="box style2">
-								<a href="./dhcp.html" class="image featured"><img src="images/dhcp.png" alt="" /></a>
-								<h3><a href="./dhcp.html">DHCP</a></h3>
-								<p>Dynamic Host Configuration Protocol</p>
+								<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+								<h3><a href="#">Veroeros primis</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
 							</article>
 						</div>
-						
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+								<h3><a href="#">Lorem ipsum</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+								<h3><a href="#">Tempus dolore</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+								<h3><a href="#">Feugiat aliquam</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
+								<h3><a href="#">Sed amet ornare</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+					</div>
 					<footer>
 						<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
 						<a href="#Devops" class="button large scrolly">Wanna Learn Devops Technical Skills</a>
@@ -79,12 +107,46 @@
 						<div class="col-4 col-6-medium col-12-small">
 							<article class="box style2">
 								<a href="#" class="image featured"><img src="images/linux.png" alt="" /></a>
-								<h3><a href="./linux1.html">Linux for Devops Enginners</a></h3>
-								<div id="button"><a href="linux1.html">Log In</a></div>
+								<h3><a href="./linux.html">Linux for Devops Enginners</a></h3>
 								<p>Ornare nulla proin odio consequat.</p>
 							</article>
 						</div>
-					
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+								<h3><a href="#">Veroeros primis</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+								<h3><a href="#">Lorem ipsum</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+								<h3><a href="#">Tempus dolore</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+								<h3><a href="#">Feugiat aliquam</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<article class="box style2">
+								<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
+								<h3><a href="#">Sed amet ornare</a></h3>
+								<p>Ornare nulla proin odio consequat.</p>
+							</article>
+						</div>
+					</div>
 					<footer>
 						<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
 						<a href="#contact" class="button large scrolly">Get in touch with me</a>
@@ -168,7 +230,7 @@
 							<ul class="social">
 								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 								<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="https://prasunsukai.medium.com/" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+								<li><a href="https://prasunsukai.medium.com/" class="icon brands fa-medium"><span class="label">Dribbble</span></a></li>
 								<li><a href="https://www.linkedin.com/in/prasun-sukai/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 								<li><a href="https://github.com/Prasunsk" class="icon brands fa-github"><span class="label">Github</span></a></li>
 								<!--

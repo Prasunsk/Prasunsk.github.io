@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Understanding Internet: DHCP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Nav -->
+        <nav id="nav">
+            <ul class="container">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#Commands">Commands</a></li>
+                <li><a href="#Reference">Reference</a></li>
+            </ul>
+        </nav>
+
+        <!--DHCP-->
+        <article id="DHCP" class="blog">
+            <div class="container">
+                <h2> Introduction</h2>
+                <p>
+                In modern computer networks, the Dynamic Host Configuration Protocol (DHCP) is a client-server protocol that automatically provides a host with its IP address and other related configuration. DHCP automates the task of assigning IP addresses, subnet masks, default gateways, and other network parameters to devices, making network management more efficient.
+                </p>
+                <img src="images/dhcp_setting.png" alt="" />
+
+                <h2> How DHCP Works</h2>
+                <dl> DHCP Discovery: </dl>
+                <p>When a DHCP client connects to a network, it sends a DHCP discovery message (DHCP DISCOVER) to locate available DHCP servers. This broadcast message is forwarded by DHCP relay agents if present.
+                </p>
+                <dl>DHCP Offer:</dl>
+                <p>Upon receiving the DHCP discovery message, one or more DHCP servers respond with a DHCP offer message (DHCPOFFER). The offer includes an available IP address, lease duration, subnet mask, default gateway, DNS server information, and other network parameters.
+                </p>
+                <dl>DHCP Request:</dl>
+                <p>The client selects one DHCP offer and sends a DHCP request message (DHCPREQUEST) to the respective DHCP server, requesting the offered IP address.
+                </p>
+                <dl>DHCP Acknowledgment:</dl>
+                <p>The DHCP server responds with a DHCP acknowledgment message (DHCP ACK), confirming the IP address lease and providing the client with the network configurations. The client then configures its network interface with the received information.\
+                </p>
+
+                <h2>Benefits of DHCP</h2>
+                <img src="images/dhcp_setting.png" alt="" />
+                <dl> Simplified IP Address Management: </dl>
+                <p>It automates and enables centralized IP address management, making it easier to add, remove, or relocate devices within the network.
+                </p>
+                <dl> Efficient Resource Utilization:</dl>
+                <p>It prevents IP address conflicts and ensures efficient utilization of available addresses, which includes cases where laptops that move to different locations on a wireless network.
+                </p>
+                <dl> Flexibility and Scalability:</dl>
+                <p>DHCP allows for easy scalability as networks grow or change. Additional DHCP servers can be deployed, and subnet configurations can be modified without significant disruptions.
+                </p>
+                <dl>Streamlined Network Configuration:</dl>
+                <p>DHCP ensures accurate and consistent network settings by providing network parameters such as subnet masks, default gateways, and DNS server information.
+                 </p>
+
+                <h2>Candidates of DHCP</h2>
+                <p>Personal Computers and other handheld devices are good candidates to be DHCP clients because they would save the admin a lot of time configuring them. As they do not accept incoming connections so it does not matter if their IP address changes.
+
+                    Mission-critical devices such as servers, routers, and switches are typically never DHCP candidates as they are important for the network to function. Their IP addresses are manually configured. 
+                </p>
+                
+                <h2>Conclusion</h2>
+                <p>DHCP is a fundamental networking protocol that automates IP address allocation and network configuration, enhancing network management efficiency. By eliminating manual IP address assignment and providing dynamic allocation, DHCP simplifies administration, reduces errors, and improves resource utilization. Understanding DHCP’s components, working principles, and benefits is essential for network engineers as well as cloud engineers.
+                </p>
+
+                </div>
+        </article>
