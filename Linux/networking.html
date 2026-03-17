@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Networking & Firewalls | Linux for DevOps</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <style>
+            :root {
+                --net-primary: #00d2ff;
+                --net-secondary: #3a7bd5;
+                --header-bg: #1e272e;
+                --bg-card: #ffffff;
+                --text-dark: #2c3e50;
+                --code-bg: #1c1c1c;
+            }
+
+            /* FIX: Spacing and Header Visibility */
+            .wrapper.style1 { padding-top: 3rem !important; }
+
+            .network-header {
+                background: linear-gradient(135deg, var(--header-bg) 0%, #000000 100%);
+                color: white;
+                padding: 4rem 2rem;
+                border-radius: 12px;
+                margin-bottom: 2rem;
+                text-align: center;
+                border-top: 5px solid var(--net-primary);
+            }
+
+            .network-header h2 {
+                color: #ffffff !important;
+                font-weight: 900 !important;
+                font-size: 2.5rem;
+                letter-spacing: 1px;
+            }
+
+            /* Grid Layout */
+            .net-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: 1.5rem;
+            }
+
+            /* Punchy Networking Cards */
+            .net-card {
+                background: var(--bg-card);
+                border-radius: 12px;
+                padding: 2rem;
+                border: 2px solid #edf2f7;
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .net-card:hover {
+                border-color: var(--net-primary);
+                box-shadow: 0 10px 20px rgba(0, 210, 255, 0.1);
+            }
+
+            .net-title {
+                font-family: 'Fira Code', monospace;
+                font-size: 1.5rem;
+                font-weight: 900 !important;
+                color: var(--net-secondary) !important;
+                margin-bottom: 0.8rem;
+                display: block;
+                border-bottom: 2px solid #f1f2f6;
+                padding-bottom: 5px;
+            }
+
+            .net-desc {
+                font-weight: 500;
+                color: #4b6584 !important;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Terminal Style Code Box */
+            .terminal-box {
+                background: var(--code-bg);
+                color: #d1d8e0;
+                padding: 15px;
+                border-radius: 8px;
+                font-family: 'Courier New', monospace;
+                font-size: 0.9rem;
+            }
+
+            .terminal-box code { color: var(--net-primary); font-weight: 700; }
+
+            .tag {
+                font-size: 0.7rem;
+                background: #f1f2f6;
+                color: #778ca3;
+                padding: 2px 8px;
+                border-radius: 4px;
+                margin-bottom: 10px;
+                display: inline-block;
+                font-weight: 700;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <nav id="nav">
+            <ul class="container">
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+
+        <article class="wrapper style1">
+            <div class="container">
+                <div class="network-header">
+                    <h2>Networking & Firewall</h2>
+                    <p>Manage ports, analyze traffic, and secure your server's perimeter.</p>
+                </div>
+
+                <div class="net-grid">
+
+                    <div class="net-card">
+                        <span class="tag">INTERFACE</span>
+                        <span class="net-title">ip addr</span>
+                        <p class="net-desc">The modern replacement for <code>ifconfig</code>. Shows all network interfaces and their assigned IP addresses.</p>
+                        <div class="terminal-box"><code>ip addr show</code></div>
+                    </div>
+
+                    <div class="net-card">
+                        <span class="tag">CONNECTIONS</span>
+                        <span class="net-title">netstat</span>
+                        <p class="net-desc">Displays active network connections and listening ports. Vital for checking if a web server is up.</p>
+                        <div class="terminal-box"><code>netstat -tuln</code></div>
+                    </div>
+
+                    <div class="net-card">
+                        <span class="tag">SECURE ACCESS</span>
+                        <span class="net-title">ssh</span>
+                        <p class="net-desc">Secure Shell. Used to log into remote servers encrypted over an insecure network.</p>
+                        <div class="terminal-box"><code>ssh user@server-ip</code></div>
+                    </div>
+
+                    <div class="net-card" style="border-left: 5px solid #ffa801;">
+                        <span class="tag" style="color: #ffa801;">FIREWALL</span>
+                        <span class="net-title" style="color: #ffa801 !important;">ufw</span>
+                        <p class="net-desc">Uncomplicated Firewall. A beginner-friendly way to manage IPTables rules and block ports.</p>
+                        <div class="terminal-box"><code>sudo ufw allow 80/tcp</code></div>
+                    </div>
+
+                    <div class="net-card">
+                        <span class="tag">HTTP TOOLS</span>
+                        <span class="net-title">curl / wget</span>
+                        <p class="net-desc">Command-line tools to transfer data. <code>curl</code> is for requests; <code>wget</code> is for downloading files.</p>
+                        <div class="terminal-box"><code>curl -I google.com</code></div>
+                    </div>
+
+                    <div class="net-card">
+                        <span class="tag">DNS</span>
+                        <span class="net-title">nslookup</span>
+                        <p class="net-desc">Used to query DNS records. Use this to verify if your domain points to the correct IP address.</p>
+                        <div class="terminal-box"><code>nslookup mywebsite.com</code></div>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+    </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>System Performance | Linux for DevOps</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <style>
+            :root {
+                --perf-primary: #ff4757; /* Precision Red */
+                --perf-dark: #2f3542;
+                --header-bg: #1e272e;
+                --bg-card: #ffffff;
+                --text-main: #2f3542;
+            }
+
+            /* FIX: Spacing and Header Visibility */
+            .wrapper.style1 { padding-top: 3rem !important; }
+
+            .performance-header {
+                background: var(--header-bg);
+                color: white;
+                padding: 4rem 2rem;
+                border-radius: 12px;
+                margin-bottom: 2rem;
+                text-align: center;
+                border-bottom: 5px solid var(--perf-primary);
+                box-shadow: 0 10px 30px rgba(255, 71, 87, 0.1);
+            }
+
+            .performance-header h2 {
+                color: #ffffff !important;
+                font-weight: 900 !important;
+                font-size: 2.8rem;
+                text-transform: uppercase;
+                letter-spacing: -1px;
+            }
+
+            /* Grid Layout */
+            .perf-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: 1.5rem;
+            }
+
+            /* Punchy Performance Cards */
+            .perf-card {
+                background: var(--bg-card);
+                border-radius: 12px;
+                padding: 2.2rem;
+                border: 2px solid #f1f2f6;
+                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .perf-card:hover {
+                transform: translateY(-10px);
+                border-color: var(--perf-primary);
+                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            }
+
+            .perf-title {
+                font-family: 'Fira Code', monospace;
+                font-size: 1.6rem;
+                font-weight: 900 !important;
+                color: var(--perf-dark) !important;
+                margin-bottom: 1rem;
+                display: block;
+                border-left: 6px solid var(--perf-primary);
+                padding-left: 15px;
+            }
+
+            .perf-desc {
+                font-weight: 500;
+                color: #57606f !important;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Terminal Style Code Box */
+            .terminal-box {
+                background: #1c1c1c;
+                color: #ffffff;
+                padding: 15px;
+                border-radius: 8px;
+                font-family: 'Courier New', monospace;
+                font-size: 0.9rem;
+            }
+
+            .terminal-box code { color: #ffafbd; font-weight: 700; }
+
+            .metric-tag {
+                font-size: 0.75rem;
+                font-weight: 800;
+                color: var(--perf-primary);
+                text-transform: uppercase;
+                margin-bottom: 5px;
+                display: block;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <nav id="nav">
+            <ul class="container">
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+
+        <article class="wrapper style1">
+            <div class="container">
+                <div class="performance-header">
+                    <h2>Performance Tuning</h2>
+                    <p>Analyze bottlenecks and optimize hardware resources for peak efficiency.</p>
+                </div>
+
+                <div class="perf-grid">
+
+                    <div class="perf-card">
+                        <span class="metric-tag">Memory & CPU</span>
+                        <span class="perf-title">vmstat</span>
+                        <p class="perf-desc">Reports virtual memory statistics, including processes, memory, paging, block IO, and CPU activity.</p>
+                        <div class="terminal-box"><code>vmstat 1 5</code></div>
+                    </div>
+
+                    <div class="perf-card">
+                        <span class="metric-tag">Disk I/O</span>
+                        <span class="perf-title">iostat</span>
+                        <p class="perf-desc">Crucial for identifying disk bottlenecks. Shows how much data is being read/written to your drives.</p>
+                        <div class="terminal-box"><code>iostat -xz 1</code></div>
+                    </div>
+
+                    <div class="perf-card">
+                        <span class="metric-tag">Load Average</span>
+                        <span class="perf-title">uptime</span>
+                        <p class="perf-desc">The quickest way to check "Load Average." It shows if your CPU is over-saturated over 1, 5, and 15 minute intervals.</p>
+                        <div class="terminal-box"><code>uptime</code></div>
+                    </div>
+
+                    <div class="perf-card" style="background: #fffafa;">
+                        <span class="metric-tag">Kernel Tuning</span>
+                        <span class="perf-title" style="color: var(--perf-primary) !important;">sysctl</span>
+                        <p class="perf-desc">Modify kernel parameters at runtime. Used by DevOps to tune network stacks and file limits.</p>
+                        <div class="terminal-box"><code>sudo sysctl -p</code></div>
+                    </div>
+
+                    <div class="perf-card">
+                        <span class="metric-tag">Hardware info</span>
+                        <span class="perf-title">lscpu</span>
+                        <p class="perf-desc">Provides detailed information about the CPU architecture, cores, threads, and cache sizes.</p>
+                        <div class="terminal-box"><code>lscpu</code></div>
+                    </div>
+
+                    <div class="perf-card">
+                        <span class="metric-tag">Storage capacity</span>
+                        <span class="perf-title">df -h</span>
+                        <p class="perf-desc">Reports the amount of disk space used and available on file systems. Essential for preventing "Disk Full" crashes.</p>
+                        <div class="terminal-box"><code>df -h</code></div>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+    </body>
+</html>

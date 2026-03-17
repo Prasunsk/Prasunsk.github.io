@@ -1,68 +1,213 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Command-line interface (CLI) and shell scripting</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+    <head>
+        <title>CLI Reference | Linux for DevOps</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <style>
+            :root {
+                --primary: #5e5ce6;
+                --danger: #ff4757;
+                --bg-card: #ffffff;
+                --header-bg: #2d3436;
+                --text-dark: #2c3e50;
+            }
 
-        <!-- Nav -->
+            /* FIX: Spacing and Header Visibility */
+            .wrapper.style1 { padding-top: 3rem !important; }
+            
+            .header-container {
+                background: var(--header-bg);
+                color: white;
+                padding: 3rem 2rem;
+                border-radius: 12px;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            .header-container h2 {
+                color: #ffffff !important;
+                font-weight: 800 !important;
+                font-size: 2.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            /* FIX: Punchy Card Titles */
+            .command-card {
+                background: var(--bg-card);
+                border-radius: 10px;
+                padding: 2rem;
+                border: 1px solid #e1e8ed;
+                transition: all 0.3s ease;
+            }
+
+            .cmd-name {
+                font-family: 'Fira Code', monospace;
+                font-size: 1.4rem;
+                font-weight: 900 !important; /* Maximum punch */
+                color: var(--primary) !important;
+                display: block;
+                margin-bottom: 0.8rem;
+                border-bottom: 2px solid #f1f2f6;
+                padding-bottom: 5px;
+            }
+
+            .command-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .example-area {
+                background: #282c34;
+                padding: 12px;
+                border-radius: 6px;
+                margin-top: 1rem;
+            }
+
+            .example-area code {
+                color: #7bed9f;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
         <nav id="nav">
             <ul class="container">
-                <li><a href="./index.html"">Home</a></li>
-                <li><a href="#Commands">Commands</a></li>
-                <li><a href="#Reference">Reference</a></li>
+                <li><a href="../index.html">Home</a></li>
             </ul>
         </nav>
 
-        <!--Command Line Interface-->
-        <article id="cli" class="blog">
+        <article class="wrapper style1">
             <div class="container">
-                <h2> Command-line interface (CLI) and shell scripting</h2>
-                <dl>
-                    <dt><strong>mkdir</strong></dt>
-                    <dd>- make a new directory within the current directory</dd>
-                    <dt><strong>cd</strong></dt>
-                    <dd>- change the current directory to another</dd>
-                    <dt><strong>pwd</strong></dt>
-                    <dd>- check your current working directory</dd>
-                    <dt><strong>touch</strong></dt>
-                    <dd>- creating new files in your current directory and also to modify file timestamps</dd>
+                <header>
+                    <h2>Linux Command Encyclopedia</h2>
+                    <p>Every essential command you need to navigate and manage a Linux environment.</p>
+                </header>
 
-                    <ul touch -m filename — Modifying the timestamp of a file to the current date > </ul>
-                    <ul touch filename — Creating a new file> </ul>
+                <div class="command-grid">
+                    
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">mkdir</span>
+                            <p class="cmd-desc"><strong>Make Directory:</strong> Used to create a new folder. It can create multiple directories at once or nested paths.</p>
+                        </div>
+                        <div class="example-area"><code>mkdir -p project/src/components</code></div>
+                        <p class="pro-tip">Tip: The -p flag creates parent directories if they don't exist.</p>
+                    </div>
 
-                    <dt><strong>cat</strong></dt>
-                    <dd>- print the content of a file to the command line screen</dd>
-                    <dt><strong>echo</strong></dt>
-                    <dd>- print characters to the screen</dd>
-                    <dt><strong>rm</strong></dt>
-                    <dd>- delete specified files in the current directory or the directory specified</dd>
-                    <dt><strong>rmdir</strong></dt>
-                    <dd>- delete a specified empty directory.</dd>
-                    <dt><strong>cp</strong></dt>
-                    <dd>- copy the content of one file to another file or duplicate a file. When copying to an existing file, it overwrites the previous text to the new one</dd>
-                    <dt><strong>mv</strong></dt>
-                    <dd>-  cutting the content of one file to another. It can also be used to rename a file.</dd>
-                    <dt><strong>grep</strong></dt>
-                    <dd>- (Global Regular Expression Print): This is used to search for strings within a specified file. Use grep as follows; grep [options] [string] [specified file]</dd>
-                    <dt><strong>cat</strong></dt>
-                    <dd>- print the content of a file to the command line screen</dd>
-                    <dt><strong>echo</strong></dt>
-                    <dd>- print characters to the screen</dd>
-                    <dt><strong>rm</strong></dt>
-                    <dd>- delete specified files in the current directory or the directory specified</dd>
-                    <dt><strong>rmdir</strong></dt>
-                    <dd>- delete a specified empty directory.</dd>
-                    <dt><strong>ping</strong></dt>
-                    <dd>- manually test the network connection</dd>
-                    <dt><strong>unzip</strong></dt>
-                    <dd>- unzip zipped files</dd>
-                    <dt><strong>whoami</strong></dt>
-                    <dd>- prints the user name associated with the system</dd>
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">cd</span>
+                            <p class="cmd-desc"><strong>Change Directory:</strong> The primary tool for navigating the file system. Moves your terminal session to a new location.</p>
+                        </div>
+                        <div class="example-area"><code>cd /var/log/nginx</code></div>
+                        <p class="pro-tip">Tip: Use "cd -" to jump back to your previous directory.</p>
+                    </div>
 
-                </dl>
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">pwd</span>
+                            <p class="cmd-desc"><strong>Print Working Directory:</strong> Tells you exactly where you are in the system by showing the full absolute path.</p>
+                        </div>
+                        <div class="example-area"><code>pwd</code></div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">touch</span>
+                            <p class="cmd-desc"><strong>Create File:</strong> Creates a new empty file instantly. It is also used to update the access/modification time of a file.</p>
+                        </div>
+                        <div class="example-area"><code>touch index.html style.css</code></div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">cat</span>
+                            <p class="cmd-desc"><strong>Concatenate:</strong> Read the entire contents of a file and output it directly to your terminal screen.</p>
+                        </div>
+                        <div class="example-area"><code>cat config.yaml</code></div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">echo</span>
+                            <p class="cmd-desc"><strong>Print Text:</strong> Outputs strings or variables to the terminal. Frequently used to write text into files using redirection.</p>
+                        </div>
+                        <div class="example-area"><code>echo "API_KEY=123" >> .env</code></div>
+                    </div>
+
+                    <div class="command-card" style="border-bottom: 4px solid var(--danger);">
+                        <div class="card-top">
+                            <span class="cmd-name" style="color: var(--danger);">rm</span>
+                            <p class="cmd-desc"><strong>Remove:</strong> Deletes files or directories. This action is permanent and cannot be undone via the terminal.</p>
+                        </div>
+                        <div class="example-area"><code>rm -rf ./old_project</code></div>
+                        <p class="pro-tip">Warning: Be extremely careful with the -rf flags.</p>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">rmdir</span>
+                            <p class="cmd-desc"><strong>Remove Directory:</strong> A safer way to delete directories; it only works if the directory is completely empty.</p>
+                        </div>
+                        <div class="example-area"><code>rmdir empty_logs_folder</code></div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">cp</span>
+                            <p class="cmd-desc"><strong>Copy:</strong> Duplicates files or folders. Use the -r flag to copy a folder and everything inside of it.</p>
+                        </div>
+                        <div class="example-area"><code>cp main.js backup_main.js</code></div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">mv</span>
+                            <p class="cmd-desc"><strong>Move/Rename:</strong> Relocates a file to a new path or changes its name. Unlike copy, it doesn't leave the original behind.</p>
+                        </div>
+                        <div class="example-area"><code>mv script.sh ./scripts/</code></div>
+                    </div>
+
+                    <div class="command-card" style="border-bottom: 4px solid var(--warning);">
+                        <div class="card-top">
+                            <span class="cmd-name" style="color: var(--warning);">grep</span>
+                            <p class="cmd-desc"><strong>Search:</strong> Filters through text or files to find lines that match a specific pattern or keyword.</p>
+                        </div>
+                        <div class="example-area"><code>grep -i "error" server.log</code></div>
+                        <p class="pro-tip">Tip: Use -i to ignore case sensitivity.</p>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">ping</span>
+                            <p class="cmd-desc"><strong>Network Test:</strong> Checks if a remote server is reachable and measures the time it takes for data to travel.</p>
+                        </div>
+                        <div class="example-area"><code>ping google.com</code></div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">unzip</span>
+                            <p class="cmd-desc"><strong>Extract:</strong> Uncompresses .zip files to retrieve the files stored inside. Essential for downloading packages.</p>
+                        </div>
+                        <div class="example-area"><code>unzip deployment.zip</code></div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="card-top">
+                            <span class="cmd-name">whoami</span>
+                            <p class="cmd-desc"><strong>Identity:</strong> Displays the name of the user currently logged into the terminal session.</p>
+                        </div>
+                        <div class="example-area"><code>whoami</code></div>
+                    </div>
+
+                </div>
             </div>
         </article>
+
+    </body>
+</html>

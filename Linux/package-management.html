@@ -7,102 +7,62 @@
         <link rel="stylesheet" href="../assets/css/main.css" />
         <style>
             :root {
-                --primary: #007bff;
-                --secondary: #6c757d;
-                --apt-color: #A81D33; /* Debian Red */
-                --yum-color: #f36f21; /* RedHat Orange */
-                --bg-card: #ffffff;
+                --apt-color: #A81D33;
+                --yum-color: #f36f21;
+                --header-bg: #2d3436;
+                --text-dark: #2c3e50;
             }
 
-            .pkg-header {
-                display: flex;
-                align-items: center;
-                gap: 15px;
+            .wrapper.style1 { padding-top: 3rem !important; }
+
+            .header-box {
+                background: var(--header-bg);
+                color: white;
+                padding: 3rem 2rem;
+                border-radius: 12px;
                 margin-bottom: 2rem;
+                text-align: center;
             }
 
-            .grid-container {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                gap: 2rem;
+            .header-box h2 {
+                color: #ffffff !important;
+                font-weight: 800 !important;
             }
 
             .pkg-card {
-                background: var(--bg-card);
+                background: #fff;
                 border-radius: 12px;
-                padding: 2rem;
-                border: 1px solid #dee2e6;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-                position: relative;
-                overflow: hidden;
+                padding: 2.5rem;
+                border: 2px solid #eee;
             }
 
-            .pkg-card::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 5px;
-            }
-
-            .apt-theme::before { background: var(--apt-color); }
-            .yum-theme::before { background: var(--yum-color); }
-
+            /* FIX: Bold Manager Titles */
             .manager-title {
-                font-size: 1.5rem;
-                font-weight: 800;
-                margin-bottom: 0.5rem;
+                font-size: 1.8rem;
+                font-weight: 900 !important;
+                margin-bottom: 1rem;
                 display: block;
             }
-
-            .distro-tag {
-                font-size: 0.8rem;
-                text-transform: uppercase;
-                background: #f1f2f6;
-                padding: 4px 8px;
-                border-radius: 4px;
-                color: #57606f;
-            }
-
-            .command-list {
-                margin-top: 1.5rem;
-                list-style: none;
-                padding: 0;
-            }
-
-            .command-item {
-                margin-bottom: 1.2rem;
-                padding-bottom: 1rem;
-                border-bottom: 1px dashed #eee;
-            }
-
-            .command-item:last-child { border: none; }
 
             .cmd-label {
-                font-weight: 600;
-                color: #2f3542;
+                font-weight: 800 !important; /* Make "Install", "Update" labels pop */
+                color: var(--text-dark);
                 display: block;
+                margin-top: 1.5rem;
                 margin-bottom: 5px;
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                letter-spacing: 1px;
             }
 
             .code-snippet {
                 background: #282c34;
                 color: #abb2bf;
-                padding: 8px 12px;
+                padding: 12px;
                 border-radius: 6px;
-                font-family: 'Fira Code', monospace;
-                font-size: 0.9rem;
+                font-family: monospace;
                 display: block;
-            }
-
-            .pro-tip {
-                background: #fff9db;
-                border-left: 4px solid #fab005;
-                padding: 10px;
-                font-size: 0.85rem;
-                margin-top: 1rem;
-                border-radius: 0 4px 4px 0;
+                font-weight: 600;
             }
         </style>
     </head>

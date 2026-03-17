@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Process Management | Linux for DevOps</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <style>
+            :root {
+                --primary: #5e5ce6;
+                --accent: #00d2ff;
+                --danger: #ff4757;
+                --header-bg: #2d3436;
+                --bg-card: #ffffff;
+                --text-dark: #2c3e50;
+            }
+
+            /* FIX: Spacing and Header Visibility */
+            .wrapper.style1 { padding-top: 3rem !important; }
+
+            .dashboard-header {
+                background: var(--header-bg);
+                color: white;
+                padding: 3.5rem 2rem;
+                border-radius: 12px;
+                margin-bottom: 2rem;
+                text-align: center;
+                border-bottom: 4px solid var(--accent);
+            }
+
+            .dashboard-header h2 {
+                color: #ffffff !important;
+                font-weight: 900 !important;
+                font-size: 2.5rem;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+
+            /* Grid Layout */
+            .process-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: 1.5rem;
+            }
+
+            /* Punchy Card Style */
+            .process-card {
+                background: var(--bg-card);
+                border-radius: 12px;
+                padding: 2rem;
+                border: 2px solid #edf2f7;
+                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .process-card:hover {
+                transform: scale(1.02);
+                border-color: var(--accent);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+
+            .process-title {
+                font-family: 'Fira Code', monospace;
+                font-size: 1.5rem;
+                font-weight: 900 !important;
+                color: var(--text-dark) !important;
+                margin-bottom: 0.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .status-badge {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+                border-radius: 20px;
+                background: #e1ffed;
+                color: #27ae60;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .process-desc {
+                font-weight: 500;
+                color: #57606f !important;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Terminal Style Code Box */
+            .terminal-box {
+                background: #1e1e1e;
+                color: #d4d4d4;
+                padding: 15px;
+                border-radius: 8px;
+                font-family: 'Courier New', monospace;
+                font-size: 0.9rem;
+                border-left: 4px solid var(--accent);
+            }
+
+            .terminal-box code { color: #4ec9b0; font-weight: 700; }
+
+            .pro-tip {
+                margin-top: 15px;
+                padding-top: 15px;
+                border-top: 1px solid #eee;
+                font-size: 0.85rem;
+                color: #747d8c;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <nav id="nav">
+            <ul class="container">
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+
+        <article class="wrapper style1">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h2>Process Management</h2>
+                    <p>Monitor, control, and optimize running applications and system resources.</p>
+                </div>
+
+                <div class="process-grid">
+
+                    <div class="process-card">
+                        <div class="process-title">top <span class="status-badge">Live View</span></div>
+                        <p class="process-desc">The classic real-time system monitor. Displays CPU usage, memory, and a list of running tasks.</p>
+                        <div class="terminal-box"><code>top</code></div>
+                        <p class="pro-tip">Press 'q' to exit the live view.</p>
+                    </div>
+
+                    <div class="process-card">
+                        <div class="process-title">ps <span class="status-badge" style="background:#e0f7ff; color:#0077b6;">Snapshot</span></div>
+                        <p class="process-desc">Shows a static "Process Status" snapshot. Use <code>aux</code> to see every process running on the system.</p>
+                        <div class="terminal-box"><code>ps aux | grep nginx</code></div>
+                    </div>
+
+                    <div class="process-card" style="border-right: 5px solid var(--danger);">
+                        <div class="process-title" style="color: var(--danger) !important;">kill <span class="status-badge" style="background:#ffebee; color:#c62828;">Critical</span></div>
+                        <p class="process-desc">Used to terminate a process using its PID (Process ID). The <code>-9</code> flag forces a shutdown.</p>
+                        <div class="terminal-box"><code>kill -9 1234</code></div>
+                    </div>
+
+                    <div class="process-card">
+                        <div class="process-title">systemctl <span class="status-badge">Services</span></div>
+                        <p class="process-desc">The modern way to manage background services (daemons). Use it to start, stop, or restart apps.</p>
+                        <div class="terminal-box"><code>sudo systemctl restart docker</code></div>
+                        <p class="pro-tip">Essential for managing web servers and databases.</p>
+                    </div>
+
+                    <div class="process-card">
+                        <div class="process-title">nice / renice</div>
+                        <p class="process-desc">Changes the priority of a process. "Niceness" ranges from -20 (highest priority) to 19 (lowest).</p>
+                        <div class="terminal-box"><code>nice -n 10 ./backup.sh</code></div>
+                    </div>
+
+                    <div class="process-card">
+                        <div class="process-title">free</div>
+                        <p class="process-desc">Displays the total amount of free and used physical memory (RAM) and swap memory in the system.</p>
+                        <div class="terminal-box"><code>free -h</code></div>
+                        <p class="pro-tip">The -h flag makes the output "Human Readable".</p>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+    </body>
+</html>

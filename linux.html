@@ -5,6 +5,100 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
+        <style>
+            :root {
+                --primary: #5e5ce6;
+                --header-bg: #1e272e;
+                --card-bg: #ffffff;
+                --text-main: #2d3436;
+            }
+
+            /* Fix Header Visibility & Spacing */
+            .wrapper.style1 {
+                background: var(--header-bg);
+                padding: 5rem 2rem !important;
+                text-align: center;
+            }
+
+            .wrapper.style1 h2 {
+                color: #ffffff !important;
+                font-weight: 900 !important;
+                font-size: 3rem;
+                letter-spacing: -1px;
+                margin-bottom: 1rem;
+            }
+
+            .wrapper.style1 p {
+                color: #b2bec3 !important;
+                font-size: 1.25rem;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            /* Concepts Portal Grid */
+            .concepts-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+                padding: 4rem 0;
+            }
+
+            .concept-card {
+                background: var(--card-bg);
+                border-radius: 15px;
+                padding: 2.5rem;
+                text-decoration: none !important;
+                border: 2px solid #edf2f7;
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            }
+
+            .concept-card:hover {
+                transform: translateY(-10px);
+                border-color: var(--primary);
+                box-shadow: 0 20px 40px rgba(94, 92, 230, 0.15);
+            }
+
+            .concept-card h3 {
+                color: var(--text-main) !important;
+                font-weight: 900 !important; /* The "Punch" */
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                line-height: 1.2;
+            }
+
+            .concept-card p {
+                color: #636e72 !important;
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+            }
+
+            .btn-link {
+                color: var(--primary);
+                font-weight: 800;
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .btn-link::after {
+                content: "→";
+                transition: transform 0.2s ease;
+            }
+
+            .concept-card:hover .btn-link::after {
+                transform: translateX(5px);
+            }
+
+            #nav { background: #000; }
+        </style>
     </head>
     <body class="is-preload">
 
@@ -18,27 +112,55 @@
         <article id="top" class="wrapper style1">
             <div class="container">
                 <header>
-                    <h2>Why Linux for DevOps?</h2>
+                    <h2>Linux for DevOps</h2>
+                    <p>
+                        The backbone of modern infrastructure. Master the CLI, automate deployments, and optimize server performance.
+                    </p>
                 </header>
-                <p>
-                    Linux is the backbone of modern infrastructure. Its flexibility and powerful CLI enable the automation and scalability that DevOps requires.
-                </p>
             </div>
         </article>
             
         <article id="concepts" class="wrapper style2">
             <div class="container">
-                <header>
-                    <h2>Key Linux Concepts for DevOps</h2>
-                </header>
-                <ul>
-                    <li><a href="Linux/cli.html">Command-line Interface & Shell Scripting</a></li>
-                    <li><a href="Linux/package-management.html">Package Management (apt, yum)</a></li>
-                    <li><a href="Linux/permissions.html">File Permissions & Ownership</a></li>
-                    <li><a href="Linux/process-management.html">Process Management & Monitoring</a></li>
-                    <li><a href="Linux/networking.html">Networking & Firewall Configuration</a></li>
-                    <li><a href="Linux/performance.html">System Performance & Optimization</a></li>
-                </ul>
+                <div class="concepts-grid">
+
+                    <a href="Linux/cli.html" class="concept-card">
+                        <h3>CLI & Shell Scripting</h3>
+                        <p>Master the terminal and automate repetitive tasks with powerful bash scripts.</p>
+                        <span class="btn-link">Explore Commands</span>
+                    </a>
+
+                    <a href="Linux/package-management.html" class="concept-card">
+                        <h3>Package Management</h3>
+                        <p>Learn to manage software lifecycles using APT for Ubuntu and DNF for Enterprise Linux.</p>
+                        <span class="btn-link">View Managers</span>
+                    </a>
+
+                    <a href="Linux/permissions.html" class="concept-card">
+                        <h3>Permissions & Ownership</h3>
+                        <p>Secure your filesystem by mastering User, Group, and Other access levels.</p>
+                        <span class="btn-link">Learn Security</span>
+                    </a>
+
+                    <a href="Linux/process-management.html" class="concept-card">
+                        <h3>Process & Monitoring</h3>
+                        <p>Monitor system health and control background services using systemd and top.</p>
+                        <span class="btn-link">Monitor Systems</span>
+                    </a>
+
+                    <a href="Linux/networking.html" class="concept-card">
+                        <h3>Networking & Firewall</h3>
+                        <p>Configure ports, troubleshoot connections, and protect your perimeter.</p>
+                        <span class="btn-link">Network Setup</span>
+                    </a>
+
+                    <a href="Linux/performance.html" class="concept-card">
+                        <h3>System Performance</h3>
+                        <p>Optimize hardware resources and tune the kernel for peak efficiency.</p>
+                        <span class="btn-link">Optimize Now</span>
+                    </a>
+
+                </div>
             </div> 
         </article>
 

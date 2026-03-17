@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Networking Fundamentals | Prasun Sukai</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <style>
+            :root {
+                --primary: #00d2ff;
+                --header-bg: #1e272e;
+                --text-dark: #2c3e50;
+            }
+
+            .wrapper.style1 { padding-top: 3rem !important; }
+
+            .article-header {
+                background: var(--header-bg);
+                color: white;
+                padding: 4rem 2rem;
+                border-radius: 12px;
+                margin-bottom: 3rem;
+                text-align: center;
+                border-bottom: 6px solid var(--primary);
+            }
+
+            .article-header h2 {
+                color: #ffffff !important;
+                font-weight: 900 !important;
+                font-size: 2.5rem;
+            }
+
+            .content-box {
+                background: #fff;
+                padding: 3rem;
+                border-radius: 15px;
+                border: 2px solid #eee;
+                margin-bottom: 2rem;
+            }
+
+            h3 {
+                font-weight: 900 !important;
+                font-size: 2rem;
+                color: var(--text-dark);
+                margin-top: 2rem;
+                border-left: 10px solid var(--primary);
+                padding-left: 20px;
+            }
+
+            .article-img {
+                width: 100%;
+                border-radius: 10px;
+                margin: 2rem 0;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                border: 1px solid #ddd;
+            }
+
+            .img-caption {
+                text-align: center;
+                font-style: italic;
+                color: #7f8c8d;
+                margin-top: -1.5rem;
+                margin-bottom: 2rem;
+                display: block;
+            }
+
+            .highlight-note {
+                background: #f1f2f6;
+                padding: 20px;
+                border-radius: 8px;
+                border-right: 5px solid var(--primary);
+                font-weight: 500;
+                margin: 20px 0;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <nav id="nav">
+            <ul class="container">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../linux.html">Back to Linux</a></li>
+            </ul>
+        </nav>
+
+        <article class="wrapper style1">
+            <div class="container">
+                <div class="article-header">
+                    <h2>Computer Networking Fundamentals for DevOps Engineers</h2>
+                    <p>By Prasun Sukai</p>
+                </div>
+
+                <div class="content-box">
+                    <p>Networking fundamentals are crucial for DevOps engineers as they often work with distributed systems, cloud environments, and container orchestration platforms. Understanding how data flows through a network helps in troubleshooting and optimizing applications.</p>
+
+                    <h3>1. The OSI Model</h3>
+                    <p>The Open Systems Interconnection (OSI) model is a conceptual framework that standardizes the functions of a telecommunication or computing system into seven abstraction layers.</p>
+                    
+                                        <img src="../images/osi-model.png" alt="OSI Model" class="article-img">
+                    <span class="img-caption">Visualizing the 7 Layers of OSI</span>
+
+                    <p>Each layer serves the layer above it and is served by the layer below it. From the Physical layer (Layer 1) to the Application layer (Layer 7), understanding these boundaries is key to identifying where a failure is occurring in your pipeline.</p>
+
+                    <h3>2. TCP/IP Protocol Suite</h3>
+                    <p>While OSI is a theoretical model, TCP/IP is the practical suite of protocols used on the internet today. It consists of four layers: Network Access, Internet, Transport, and Application.</p>
+                    
+                                        <img src="../images/tcp-handshake.png" alt="TCP Handshake" class="article-img">
+                    <span class="img-caption">The 3-Way Handshake: SYN, SYN-ACK, ACK</span>
+
+                    <div class="highlight-note">
+                        DevOps Tip: Understanding the 3-way handshake is essential when debugging connection timeouts or "Connection Refused" errors in microservices.
+                    </div>
+
+                    <h3>3. IP Addressing and Subnetting</h3>
+                    <p>IP addresses are unique identifiers for devices on a network. DevOps engineers must be comfortable with IPv4, IPv6, and CIDR notation to manage cloud VPCs and Kubernetes networking.</p>
+                    
+                                        <img src="../images/subnetting.png" alt="Subnetting" class="article-img">
+                    <span class="img-caption">Breaking down CIDR and Subnet Masks</span>
+
+                    <h3>4. DNS (Domain Name System)</h3>
+                    <p>DNS is the "phonebook of the internet." In a DevOps context, DNS is used for service discovery. When you move services across clusters, DNS ensures that traffic still finds the right destination.</p>
+                    
+                                        <img src="../images/dns-flow.png" alt="DNS Resolution" class="article-img">
+                    <span class="img-caption">The Journey of a DNS Query</span>
+
+                    <h3>Conclusion</h3>
+                    <p>Mastering these fundamentals is not just for Network Engineers; it is a foundational skill for any DevOps professional looking to build resilient and scalable infrastructure.</p>
+                </div>
+            </div>
+        </article>
+    </body>
+</html>
