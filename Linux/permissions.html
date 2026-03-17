@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Permissions & Ownership | Linux for DevOps</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <style>
+            :root {
+                --user-clr: #5e5ce6;
+                --group-clr: #30d158;
+                --other-clr: #ff9f0a;
+                --bg-card: #ffffff;
+                --header-bg: #2d3436;
+                --text-dark: #2c3e50; /* A sharp, readable dark blue-grey */
+            }
+
+            /* FIX: Spacing at the top */
+            .wrapper.style1 {
+                padding-top: 3rem !important;
+            }
+
+            .perm-header {
+                background: var(--header-bg);
+                color: white;
+                padding: 3rem 2rem;
+                border-radius: 12px;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            .perm-header h2 {
+                color: #ffffff !important;
+                font-weight: 800 !important; /* Forces heavy bold */
+                font-size: 2.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            /* FIX: Make card titles Bold and Visible */
+            .perm-title {
+                font-size: 1.25rem;
+                font-weight: 800 !important; /* Force bold for 'chmod', 'chown', etc. */
+                color: var(--text-dark) !important;
+                display: block;
+                margin-bottom: 1rem;
+                border-bottom: 2px solid #f1f2f6;
+                padding-bottom: 8px;
+            }
+
+            /* FIX: Card body text weight */
+            .perm-card p {
+                color: #57606f !important;
+                font-weight: 500; /* Medium weight for readability */
+                line-height: 1.6;
+            }
+
+            .perm-card {
+                background: var(--bg-card);
+                border-radius: 10px;
+                padding: 2rem;
+                border: 1px solid #e1e8ed;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            }
+
+            /* Visual Breakdown styling */
+            .visual-breakdown {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                font-family: 'Fira Code', monospace;
+                font-size: 2rem;
+                margin: 20px 0;
+                background: #f8f9fa;
+                padding: 25px;
+                border-radius: 8px;
+                font-weight: 700;
+            }
+
+            .u { color: var(--user-clr); }
+            .g { color: var(--group-clr); }
+            .o { color: var(--other-clr); }
+
+            .code-box {
+                background: #282c34;
+                color: #61afef;
+                padding: 12px;
+                border-radius: 6px;
+                font-family: 'Fira Code', monospace;
+                font-weight: 600; /* Makes code look sharp */
+                margin-top: 15px;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <nav id="nav">
+            <ul class="container">
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+
+        <article class="wrapper style1">
+            <div class="container">
+                <div class="perm-header">
+                    <h2>File Permissions & Ownership</h2>
+                    <p>In Linux, everything is a file. Understanding who can read, write, or execute those files is critical for security.</p>
+                </div>
+
+                <div class="perm-card" style="margin-bottom: 2rem;">
+                    <span class="perm-title">Understanding the String</span>
+                    <p>When you run <code>ls -l</code>, you see a 10-character string like this:</p>
+                    
+                    <div class="visual-breakdown">
+                        <span>-</span>
+                        <span class="u">rwx</span>
+                        <span class="g">r-x</span>
+                        <span class="o">r--</span>
+                    </div>
+
+                    <div class="legend">
+                        <span class="u">● User:</span> Owner of the file.<br>
+                        <span class="g">● Group:</span> Users who are members of the file's group.<br>
+                        <span class="o">● Others:</span> Everyone else on the system.
+                    </div>
+                </div>
+
+                <div class="perm-grid">
+                    
+                    <div class="perm-card">
+                        <span class="perm-title">chmod (Change Mode)</span>
+                        <p>Changes the access permissions of a file. You can use numbers (755) or symbols (u+x).</p>
+                        
+                        <table class="numeric-table">
+                            <tr><th>No.</th><th>Permission</th><th>Value</th></tr>
+                            <tr><td>4</td><td>Read (r)</td><td>Read Only</td></tr>
+                            <tr><td>2</td><td>Write (w)</td><td>Edit/Delete</td></tr>
+                            <tr><td>1</td><td>Execute (x)</td><td>Run as Script</td></tr>
+                        </table>
+
+                        <div class="code-box">chmod 755 script.sh</div>
+                        <p class="pro-tip">755 = User(4+2+1), Group(4+0+1), Other(4+0+1)</p>
+                    </div>
+
+                    <div class="perm-card">
+                        <span class="perm-title">chown (Change Owner)</span>
+                        <p>Changes which user and group "own" the file. This is vital when deploying web servers like Nginx or Apache.</p>
+                        
+                        <div class="code-box">sudo chown www-data:www-data index.html</div>
+                        <p class="pro-tip">Format: <code>user:group</code>. Usually requires <strong>sudo</strong>.</p>
+                    </div>
+
+                    <div class="perm-card">
+                        <span class="perm-title">umask</span>
+                        <p>Sets the default permissions for newly created files and directories. It acts as a "filter" that subtracts from the maximum possible permission.</p>
+                        
+                        <div class="code-box">umask 022</div>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+    </body>
+</html>

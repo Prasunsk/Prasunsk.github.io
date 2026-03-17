@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Package Management | Linux for DevOps</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <style>
+            :root {
+                --primary: #007bff;
+                --secondary: #6c757d;
+                --apt-color: #A81D33; /* Debian Red */
+                --yum-color: #f36f21; /* RedHat Orange */
+                --bg-card: #ffffff;
+            }
+
+            .pkg-header {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 2rem;
+            }
+
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 2rem;
+            }
+
+            .pkg-card {
+                background: var(--bg-card);
+                border-radius: 12px;
+                padding: 2rem;
+                border: 1px solid #dee2e6;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .pkg-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+            }
+
+            .apt-theme::before { background: var(--apt-color); }
+            .yum-theme::before { background: var(--yum-color); }
+
+            .manager-title {
+                font-size: 1.5rem;
+                font-weight: 800;
+                margin-bottom: 0.5rem;
+                display: block;
+            }
+
+            .distro-tag {
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                background: #f1f2f6;
+                padding: 4px 8px;
+                border-radius: 4px;
+                color: #57606f;
+            }
+
+            .command-list {
+                margin-top: 1.5rem;
+                list-style: none;
+                padding: 0;
+            }
+
+            .command-item {
+                margin-bottom: 1.2rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px dashed #eee;
+            }
+
+            .command-item:last-child { border: none; }
+
+            .cmd-label {
+                font-weight: 600;
+                color: #2f3542;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .code-snippet {
+                background: #282c34;
+                color: #abb2bf;
+                padding: 8px 12px;
+                border-radius: 6px;
+                font-family: 'Fira Code', monospace;
+                font-size: 0.9rem;
+                display: block;
+            }
+
+            .pro-tip {
+                background: #fff9db;
+                border-left: 4px solid #fab005;
+                padding: 10px;
+                font-size: 0.85rem;
+                margin-top: 1rem;
+                border-radius: 0 4px 4px 0;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <nav id="nav">
+            <ul class="container">
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+
+        <article class="wrapper style1">
+            <div class="container">
+                <header>
+                    <h2>Package Management</h2>
+                    <p>Software in Linux is managed through repositories. Here is how you handle installations on the most common distributions.</p>
+                </header>
+
+                <div class="grid-container">
+                    
+                    <section class="pkg-card apt-theme">
+                        <span class="distro-tag">Debian / Ubuntu / Kali</span>
+                        <span class="manager-title" style="color: var(--apt-color);">APT (Advanced Package Tool)</span>
+                        <p>The standard for Debian-based systems. Known for its ease of use and powerful dependency resolution.</p>
+                        
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="cmd-label">Update Repositories</span>
+                                <code class="code-snippet">sudo apt update</code>
+                            </div>
+                            <div class="command-item">
+                                <span class="cmd-label">Install a Package</span>
+                                <code class="code-snippet">sudo apt install [package_name]</code>
+                            </div>
+                            <div class="command-item">
+                                <span class="cmd-label">Remove Software</span>
+                                <code class="code-snippet">sudo apt remove [package_name]</code>
+                            </div>
+                        </div>
+                        <div class="pro-tip">
+                            <strong>DevOps Tip:</strong> Use <code>apt-get install -y</code> in your Dockerfiles to auto-confirm installations.
+                        </div>
+                    </section>
+
+                    <section class="pkg-card yum-theme">
+                        <span class="distro-tag">RHEL / CentOS / Fedora</span>
+                        <span class="manager-title" style="color: var(--yum-color);">YUM / DNF</span>
+                        <p>Yellowdog Updater, Modified (YUM) and its successor DNF are used in enterprise-grade Red Hat distributions.</p>
+                        
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="cmd-label">Refresh Metadata</span>
+                                <code class="code-snippet">sudo dnf check-update</code>
+                            </div>
+                            <div class="command-item">
+                                <span class="cmd-label">Install a Package</span>
+                                <code class="code-snippet">sudo dnf install [package_name]</code>
+                            </div>
+                            <div class="command-item">
+                                <span class="cmd-label">Clean Cache</span>
+                                <code class="code-snippet">sudo dnf clean all</code>
+                            </div>
+                        </div>
+                        <div class="pro-tip">
+                            <strong>Fact:</strong> On modern systems, <code>yum</code> is usually just a symbolic link to <code>dnf</code>.
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </article>
+
+    </body>
+</html>
