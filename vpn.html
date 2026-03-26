@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Create Your Own VPN — Part 1 | Prasun Sukai</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <link rel="stylesheet" href="assets/sass/main.css" />
+
+        <style>
+            :root {
+                --vpn-orange: #e67e22;
+                --dark-bg: #1e272e;
+            }
+
+            .wrapper.style1 {
+                padding-top: 2em !important;
+            }
+
+            /* Consistent Blog Branding */
+            .article-header {
+                background: var(--dark-bg);
+                padding: 3.5rem 2.5rem;
+                border-radius: 12px;
+                margin-bottom: 3rem;
+                border-bottom: 8px solid var(--vpn-orange);
+                text-align: left;
+            }
+
+            .article-header h2 {
+                color: #ffffff !important;
+                font-weight: 900 !important; 
+                font-size: 2.8rem;
+                line-height: 1.2;
+                margin-bottom: 0.5rem;
+                letter-spacing: -1px;
+            }
+
+            .article-header p {
+                color: #ffffff !important;
+                font-weight: 800;
+                text-transform: uppercase;
+                font-size: 0.9rem;
+            }
+
+            .content-box {
+                text-align: left;
+            }
+
+            .content-box p {
+                font-weight: 600 !important;
+                color: #3e3e3e;
+                line-height: 1.8;
+                font-size: 1.15rem;
+                margin-bottom: 1.5rem;
+            }
+
+            h3 {
+                font-weight: 900 !important;
+                font-size: 2rem;
+                margin-top: 3rem;
+                margin-bottom: 1rem;
+                border-left: 10px solid var(--vpn-orange);
+                padding-left: 20px;
+                color: #3e3e3e;
+            }
+
+            /* Highlights for important warnings/tips */
+            .tip-box {
+                background: #fff3e0;
+                border-left: 5px solid var(--vpn-orange);
+                padding: 1.5rem;
+                margin: 2rem 0;
+                font-weight: 600;
+            }
+
+            .article-img {
+                display: block;
+                width: 75% !important; 
+                max-width: 900px;
+                margin: 3rem auto !important;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <nav id="nav">
+            <ul class="container">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+
+        <article class="wrapper style1">
+            <div class="container">
+                
+                <div class="article-header">
+                    <h2>Here’s how I create my own VPN — Part 1</h2>
+                    <p>By Prasun Sukai | AWS & Cloud Security</p>
+                </div>
+
+                <div class="content-box">
+                    <h3>My Motivation</h3>
+                    <p>As a Non Resident of India (NRI), watching my favorite shows and movies were turning out to be difficult. Determined to resolve my situation I tumbled upon multiple ways to watch. But with each solution, came its own catch. And thus gave me motivation to create my own VPN using AWS.</p>
+
+                    <h3>Project Overview</h3>
+                    <ul>
+                        <li><strong>Step 1: Creating an AWS account</strong> </li>
+                        <li><strong>Step 2: Start an EC2 instance with OpenVPN image</strong> </li>
+                        <li><strong>Step 3: Configure the VPN server</strong> </li>
+                        <li><strong>Step 4: Connect as a client</strong> </li>
+                    </ul>
+
+                    <h3>Step 1: Creating an AWS Account</h3>
+                    <img src="images/vpn/aws_signup.webp" alt="AWS Account Creation" class="article-img">
+                    <p>Create a new AWS account using your email. You will be logged in as Root user. AWS is free of cost for 1 year for some services like <strong>EC2 t2.micro</strong> instances under the Free-tier policy.</p>
+
+                    <div class="tip-box">
+                        <p>At this point, if you are already past your Free-tier policy , then you can run the t2.nano as that is the cheapest option. An EC2 server like the t2.micro and t2.nano are virtual machines hosted by AWS, in the cloud, which can be rented by customers, like us, as when needed.</p>
+                    </div>
+                    <p>At this point set your AWS region as Mumbai i.e. <strong>Asia Pacific (Mumbai) ap-south-1</strong>. This will ensure that the VPN server is located in India.</p>
+                    <img src="images/vpn/select_location.webp" alt="Launching EC2 Instance" class="article-img">
+
+                    <h3>Step 2: Launching the EC2 Server</h3>
+                    <p>Search for EC2 in the console and select "Launch Instance." Use the <strong>OpenVPN Access Server AMI</strong>. While it is a commercial offering, the free version allows up to 2 simultaneous client connections.</p>
+                    <img src="images/vpn/openvpm_ami.webp" alt="AWS Connect Instance" class="article-img">
+                    <p>OpenVPN is a free and open-source software. This OpenVPN Access Server AMI(Amazon Machine Image) is a paid commercial offering but the first option is a free version where only 2 clients can connect. </p>
+                    <img src="images/vpn/t2Micro.webp" alt="Select t2.micro if your are Free-tier eligible, else select t2.nano" class="article-img">
+                    <p><strong>Create a key-pair login and download it.</strong> </p>
+                    <div class="tip-box">
+                        <strong>Critical Step:</strong> Remember to download it as this is your only chance to download it. Its gonna help you login into your VPN server as Admin.
+                    </div>
+                    <p>Finally, hit launch. Once your server status shows "Running," you officially have your own personal VPN server ready for configuration.</p>
+
+                    <h3>Step 3: Connect to your server and configure it</h3>
+                    <img src="images/vpn/connect_ec2.webp" alt="Connect to your EC2 instance for configurations" class="article-img">
+                    <p>Right click on the instance and click connect. You can use the EC2 Instance connect to do the upcoming steps on your web browser or you can use your own terminal. Do remember that in case you prefer to use the terminal of your PC, follow steps mentioned in the second image.</p>
+                    <img src="images/vpn/connect2instance.webp" alt="Secure login to your EC2 instance using the web-browser( Opens in new tab)" class="article-img">
+                    <img src="images/vpn/connect2instance2.webp" alt="Follow steps to secure login while using the terminal of your PC" class="article-img">
+                    
+                    <p>Agree through all the term and conditions and keep the values in default. Create a password for the admin account of your server and note it down.</p>
+
+                    <img src="images/vpn/pw_setup.webp" alt="Set your password for admin portal of your VPN server" class="article-img">
+                    <p>Once everything is complete, you will receive the link for the admin page of your VPN server which we just created. Copy the admin URL link and past it in another tab.</p>
+
+                    <div class="tip-box">
+                    <strong>Note:</strong>  Note that your link would definitely look different than mine, as the public IPs generated for 2 instances are never same.
+                    </div>
+                    <img src="images/vpn/serverlink.webp" alt="This is the Admin portal of our VPN server" class="article-img">
+
+                    <p>Your browser might determine the link as unsafe, but be assured that its safe because we have just created it. Click “Advanced” and “Proceed to xx.xxxx.xxxx.xx (unsafe)”. Once opened, the username will be “openvpn” and the password is as you set in the previous step.</p>
+
+                    <img src="images/vpn/allow.webp" alt="Opening the admin page of our newly created VPN" class="article-img">
+
+                    <p>Once you’re logged in go to “CONFIGURATION >> VPN Settings” and set “Should client Internet traffic be routed through the VPN?” to “YES”. Save the settings and click on “Update Running Server” to apply the setting on our server.</p>
+
+                    <img src="images/vpn/vpn_config.webp" alt="Set all internet traffic through the VPN only" class="article-img">
+
+                    <h3>Step 4: Connect to VPN as a client</h3>
+                    <p>To connect your devices, you first need to access the client portal. Go to your browser's address bar and remove <code>/admin</code> from the end of the URL. For example, if your admin page is <code>https://13.232.159.99:943/admin</code>, your client page will be <code>https://13.232.159.99:943/</code>.</p>
+
+                    <img src="images/vpn/user_login.png" alt="Do notice that its “User Login”" class="article-img">
+
+                    <p>Log in using the same <code>openvpn</code> username and the password you set earlier. Once logged in, select your specific device and Operating System (Windows, macOS, Linux, etc.) to download the appropriate VPN client app.</p>
+
+                    <img src="images/vpn/vpn_page.webp " alt="Select you application based on your OS and device" class="article-img">
+
+                    <div class="tip-box">
+                    <strong>Installation Tip:</strong> Your OS might warn you against installing the application. You can safely ignore this and proceed with the installation, as this is a private application created specifically for your server.
+                    </div>
+
+                    <p>After installing, open the application, agree to the terms, and hit <strong>Connect</strong>. You will be prompted to enter your admin password one last time to establish the secure tunnel.</p>
+
+                    <img src="images/vpn/connect_vpn.webp" alt="Type the password you set" class="article-img">
+
+                    <p>Once the status shows "Connected," you can start browsing your favorite Indian streaming sites like JioCinema, Primevideo.in, Zee5, or SonyLIV. To confirm it's working, search "What’s my IP" on Google or visit <a href="https://whatismyipaddress.com/" target="_blank">whatismyipaddress.com</a>. You should see your ISP listed as Amazon.com with a location in Mumbai.</p>
+
+                    <img src="images/vpn/verify_location.webp" alt="Check the ISP i.e. Internet Service Provider" class="article-img">
+
+                    <div class="tip-box">
+                    <strong>Multi-Device Support:</strong> Remember, this server allows you to connect up to <strong>2 clients for free</strong>. You can follow these same steps on your mobile device to enjoy Indian content on the go!
+                    </div>
+                    <h3>Takeaways</h3>
+
+                    <ol>
+                    <li><strong> Do remember about only 2 free-clients, if you want to connect more devices/clients to the VPN, do get the paid one</strong></li>
+                    <li><strong>Although for new AWS users, the t2.micro is free but its capped at 750 hours. So that means if you leave it ON you might incur charges after a month or two.</strong></li>
+                    <li><strong>I would suggest, to connect to the server when you need to watch a game or a series. Post that, please “STOP” your instance. In that way you will retain the configurations you did and start the server whenever you need to connect again.</strong></li>
+                    <li><strong>In case you decide to “STOP” your instance, kindly attach an Elastic IP to your instance , so that even after stopping and restarting your EC2 instance, your IP address doesn’t change.</strong></li>
+                    <li><strong>Alternatively you can “Terminate” your instance, but that would mean you would lose all your configurations and the server.</strong></li>
+                    </ol>
+
+                    <h3>Conclusion</h3>
+
+                    <p>Creating your own VPN server and routing all your internet traffic through it is one of the safest ways to browse the internet. Beyond just unlocking regional content, it protects you from hackers and malicious entities trying to snoop on your data.</p>
+
+                    <p>This is a 10-minute procedure that ensures you have a secure connection over commercial offerings, which have been accused of mishandling user data in the past. It’s a small investment in time for a massive gain in privacy and freedom.</p>
+
+                    <div class="article-header" style="margin-top: 4rem; border-bottom: none; border-top: 8px solid var(--vpn-orange);">
+                    <h2 style="font-size: 2rem;">Thank You for reading!</h2>
+                    <p>If you get stuck at any step while experimenting, feel free to connect with me. Happy tunneling!</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </body>
+</html>
